@@ -1,77 +1,3 @@
-<div align="center" style="margin-bottom: 1em;">
-
-# Outlines 〰️
-
-<img src="./docs/assets/images/logo.png" alt="Outlines Logo" width=300></img>
-
-[![.txt Twitter][dottxt-twitter-badge]][dottxt-twitter]
-[![Outlines Twitter][outlines-twitter-badge]][outlines-twitter]
-
-[![Contributors][contributors-badge]][contributors]
-[![Downloads][downloads-badge]][pypistats]
-[![Discord][discord-badge]][discord]
-
-
-*Robust (structured) text generation.*
-
-Made with ❤👷️ by the team at [.txt](https://dottxt.co).
-
-</div>
-
-
-``` bash
-pip install outlines
-```
-
-First time here? Go to our [setup guide](https://outlines-dev.github.io/outlines/welcome)
-
-## Features
-
-- [x] 🤖 [Multiple model integrations](https://outlines-dev.github.io/outlines/installation): OpenAI, transformers, llama.cpp, exllama2, mamba
-- [x] 🖍️ Simple and powerful prompting primitives based on the [Jinja templating engine](https://jinja.palletsprojects.com/)
-- [x] 🚄 [Multiple choices](#multiple-choices), [type constraints](#type-constraint) and dynamic stopping
-- [x] ⚡ Fast [regex-structured generation](#efficient-regex-structured-generation)
-- [x] 🔥 Fast [JSON generation](#efficient-json-generation-following-a-pydantic-model) following a JSON schema or a Pydantic model
-- [x] 📝 [Grammar-structured generation](#using-context-free-grammars-to-guide-generation)
-- [x] 🐍 Interleave completions with loops, conditionals, and custom Python functions
-- [x] 💾 Caching of generations
-- [x] 🗂️ Batch inference
-- [x] 🎲 Sample with the greedy, multinomial and beam search algorithms (and more to come!)
-- [x] 🚀 [Serve with vLLM](https://outlines-dev.github.io/outlines/reference/vllm), with official Docker image, [`outlinesdev/outlines`](https://hub.docker.com/r/outlinesdev/outlines)!
-
-
-Outlines 〰 has new releases and features coming every week. Make sure to ⭐ star and 👀 watch this repository, follow [@dottxtai][dottxt-twitter] to stay up to date!
-
-## Why should I use structured generation?
-
-* It doesn't add any overhead during inference (cost-free)
-* It allows Open Source models to beat closed source models ([Mistral](https://x.com/dottxtai/status/1797692104023363765), [GPT-4](https://x.com/dottxtai/status/1798443290913853770))
-* [It speeds up inference](http://blog.dottxt.co/coalescence.html)
-* [It improves the performance of base models (GSM8K)](http://blog.dottxt.co/performance-gsm8k.html)
-* [It improves the performance of finetuned models (CoNNL)](https://predibase.com/blog/lorax-outlines-better-json-extraction-with-structured-generation-and-lora)
-* [It improves model efficiency (less examples needed)](https://huggingface.co/blog/evaluation-structured-outputs)
-
-## .txt company
-
-<div align="center">
-<img src="./docs/assets/images/dottxt.png" alt="Outlines Logo" width=100></img>
-</div>
-
-We started a company to keep pushing the boundaries of structured generation. Learn more about [.txt](https://twitter.com/dottxtai), and  [give our .json API a try](https://h1xbpbfsf0w.typeform.com/to/ZgBCvJHF) if you need a hosted solution ✨
-
-## Structured generation
-
-The first step towards reliability of systems that include large language models
-is to ensure that there is a well-defined interface between their output and
-user-defined code. **Outlines** provides ways to control the generation of
-language models to make their output more predictable.
-
-Before using mistral models, request access on huggingface [here](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2).
-``` python
-# login to access mistral model
-from huggingface_hub import login
-login()
-```
 ### Multiple choices
 
 You can reduce the completion to a choice between multiple possibilities:
@@ -343,30 +269,6 @@ model = outlines.models.transformers("mistralai/Mistral-7B-Instruct-v0.2")
 prompt = labelling("Just awesome", examples)
 answer = outlines.generate.text(model)(prompt, max_tokens=100)
 ```
-
-## Join us
-
-- 💡 **Have an idea?** Come chat with us on [Discord][discord]
-- 🔨 **Want to contribute?** Consult our [contribution guide](https://outlines-dev.github.io/outlines/community/contribute/).
-- 🐞 **Found a bug?** Open an [issue](https://github.com/outlines-dev/outlines/issues)
-
-
-## Cite Outlines
-
-```
-@article{willard2023efficient,
-  title={Efficient Guided Generation for LLMs},
-  author={Willard, Brandon T and Louf, R{\'e}mi},
-  journal={arXiv preprint arXiv:2307.09702},
-  year={2023}
-}
-```
-
-[contributors]: https://github.com/outlines-dev/outlines/graphs/contributors
-[contributors-badge]: https://img.shields.io/github/contributors/outlines-dev/outlines?style=flat-square&logo=github&logoColor=white&color=ECEFF4
-[dottxt-twitter]: https://twitter.com/dottxtai
-[outlines-twitter]: https://twitter.com/OutlinesOSS
-[discord]: https://discord.gg/R9DSu34mGd
 [discord-badge]: https://img.shields.io/discord/1182316225284554793?color=81A1C1&logo=discord&logoColor=white&style=flat-square
 [downloads-badge]: https://img.shields.io/pypi/dm/outlines?color=89AC6B&logo=python&logoColor=white&style=flat-square
 [pypistats]: https://pypistats.org/packages/outlines
